@@ -8,11 +8,25 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class ViewController: UIViewController,UITextViewDelegate,UITextFieldDelegate {
+    @IBOutlet weak var atai: UITextField!
 
+    @IBOutlet weak var dataText: UITextView!
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        atai.delegate = self
+    }
+    func textField(textField: UITextField, shouldChangeCharactersInRange range: NSRange, replacementString string: String) -> Bool {
+        var tmp = textField.text! as NSString
+        tmp = tmp.stringByReplacingCharactersInRange(range, withString: string)
+        if tmp == ""{
+           dataText.text=""
+        }else{
+            let num = Int(tmp as String)
+            dataText.text=String(num! * 25)
+        }
+        return true
     }
 
     override func didReceiveMemoryWarning() {
