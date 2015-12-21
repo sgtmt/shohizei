@@ -24,7 +24,7 @@ class ViewController: UIViewController,UITextViewDelegate,UITextFieldDelegate {
            dataText.text=""
         }else{
             let num = Int(tmp as String)
-            dataText.text=String(num! * 25)
+            dataText.text=String(num! * 20)
         }
         return true
     }
